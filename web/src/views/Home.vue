@@ -1,0 +1,228 @@
+<template>
+    <div class="home">
+        <!-- start of top container -->
+        <div class="container mt-5 ml-5 mr-3 ">
+            <!-- start of swiper -->
+            <div class="pictures">
+                <el-carousel indicator-position="outside">
+                    <el-carousel-item>
+                        <img src="../assets/swipertwo.jpeg" class="swiper">
+                    </el-carousel-item>
+                    <el-carousel-item>
+                        <img src="../assets/swiperone.jpeg" class="swiper">
+                    </el-carousel-item>
+                </el-carousel>
+            </div>
+            <!-- end of swiper -->
+
+            <!-- start of news -->
+            <div class="card bg-light p-3 ml-5">
+                <div class="card-header d-flex ai-center mb-4">
+                   <div class="fs-xl flex-1 px-2">
+                       <i class="iconfont icon-ziyuan mx-2"></i>活动新闻
+                   </div>
+                </div>
+                <router-link tag="div" class="card-body pt-2 pb-2 px-3 d-flex"
+                             v-for="(item,i) in activities" :key="i"
+                            :to="`/activities/${item._id}`">
+                    <span class="fs-xxl">·</span>
+                    <span class="text-info">『热门』</span>
+                    <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
+                    <span class="text-grey fs-sm">{{ item.createAt | date }}</span>
+                </router-link>
+            </div>
+            <!-- end of news -->
+
+            <!-- start of joinus -->
+            <div class="card bg-light ml-5 p-3 pb-2 joinus">
+                <div class="card-header d-flex ai-center mb-3">
+                    <div class="fs-xl flex-1 px-2">
+                        <i class="iconfont icon-tubiaozhizuomoban mx-2"></i>加入我们
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img src="../assets/QQImage.jpg" class="qqImage">
+                </div>
+                <div class="text-center fs-xl mb-5 flex-1">
+                        <p>QQ公众号:3452204384</p>
+                </div>
+            </div>
+            <!-- end of joinus -->
+        </div>
+        <!-- end of top container -->
+
+        <!-- start of links -->
+        <div class="links d-flex jc-around mt-3">
+            <div class="text-center tag tag1 mx-3 py-3">
+                <a href="http://www.hzau.edu.cn/" class="text-white"><i class="iconfont mx-2 icon-shangquan"></i>华中农大官网</a>
+            </div>
+            <div class="text-center tag tag2 mx-3 py-3">
+                <a href="http://coi.hzau.edu.cn/" class="text-white"><i class="iconfont mx-2 icon-jisuanji"></i>信息学院官网</a>
+            </div>
+            <div class="text-center tag tag3 mx-3 py-3">
+                <a href="http://sport.hzau.edu.cn/" class="text-white"><i class="iconfont mx-2 icon-tiyukebu"></i>校体育部官网</a>
+            </div>
+            <div class="text-center tag tag4 mx-3 py-3">
+                <a href="http://211.69.129.116:8501/security/login.do" class="text-white"><i class="iconfont mx-2 icon-xitong"></i>体育管理系统</a>
+            </div>
+            <div class="text-center tag tag5 mx-3 py-3">
+                <a href="#" class="text-white"><i class="iconfont mx-2 icon-aixin" ></i>院体育部官网</a>
+            </div>
+        </div>
+        <!-- end of links -->
+
+        <!-- start of bottom container -->
+        <div class="btContainer mt-5 ">
+            <!-- start of teamview -->
+            <div class="card bg-light p-3 ml-5">
+                <div class="card-header d-flex ai-center mb-4">
+                    <div class="fs-xl flex-1 px-2">
+                        <i class="iconfont icon-qiu mx-2"></i>球队一览
+                    </div>
+                </div>
+                <router-link tag="div" class="card-body pt-2 pb-2 px-3 d-flex"
+                             v-for="(item,i) in teams" :key="i"
+                             :to="`/teams/${item._id}`">
+                    <span class="fs-xxl px-3">·</span>
+                    <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
+                </router-link>
+            </div>
+            <!-- end of teamview -->
+            <div></div>
+            <!-- start of groupview -->
+            <div class="card bg-light p-3 mr-5">
+                    <div class="card-header d-flex ai-center mb-4">
+                        <div class="fs-xl flex-1 px-2">
+                            <i class="iconfont icon-aixin mx-2"></i>团队建设
+                        </div>
+                    </div>
+                    <router-link tag="div" class="card-body pt-2 pb-2 px-3 d-flex"
+                                 v-for="(item,i) in groups" :key="i"
+                                 :to="`/groups/${item._id}`">
+                        <span class="fs-xxl px-3">·</span>
+                        <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
+                        <span class="text-grey fs-sm">{{ item.createAt | date }}</span>
+                    </router-link>
+                </div>
+            <!-- end of groupview -->
+            <!-- start of finger -->
+            <div class="mx-3">
+                <img src="../assets/finger.jpg" class="finger">
+            </div>
+            <!-- end of finger -->
+        </div>
+    </div>
+</template>
+
+<script>
+    import dayjs from 'dayjs'
+export default {
+    filters:{
+        date(val){
+            return dayjs(val).format('MM-DD')
+        }
+    },
+    data(){
+        return{
+            activities:[],
+            teams:[],
+            groups:[]
+        }
+    },
+    methods:{
+        async fetchActivities(){
+            const res = await this.$http.get('activities/list')
+            this.activities = res.data.slice(0,5)
+        },
+        async fetchTeams(){
+            const res = await this.$http.get('teams/list')
+            this.teams = res.data
+        },
+        async fetchGroups(){
+            const res = await this.$http.get('groups/list')
+            this.groups = res.data
+        }
+    },
+    created() {
+        this.fetchActivities()
+        this.fetchTeams()
+        this.fetchGroups()
+    }
+}
+</script>
+
+<style scoped>
+.homeTitle{
+    font-size: 3rem;
+}
+@media screen and (min-width: 1120px){
+     img{
+         height: 360px;
+         width: 360px;
+     }
+}
+.swiper{
+    height: auto;
+    width: 100%;
+}
+.container{
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+}
+.btContainer{
+    display: grid;
+    grid-template-columns: 40% 5% 40% 15%;
+}
+.links{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+a{
+    width: 60%;
+    height: 3rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.tag{
+    border-radius: 5px;
+}
+.tag1{
+    background-color: #55a532;
+    background-image: linear-gradient(to top right, #63a35c, #42b983);
+}
+.tag2{
+    background-color: #58ACFA;
+    background-image: linear-gradient(to top right, #409EFF, #58ACFA);
+}
+.tag3{
+    background-color: #df5000;
+    background-image: linear-gradient(to top right, #df5000, #db9e3f);
+}
+.tag4{
+    background-color: #1f3695;
+    background-image: linear-gradient(to top right, #1f3695, #4b67af);
+}
+.tag5{
+    background-color: #DD4A68;
+    background-image: linear-gradient(to top right, #DD4A68, #a71d5d);
+}
+
+.card{
+    height: 90%;
+}
+
+.joinus{
+    display: flex;
+    flex-flow: column;
+}
+
+.qqImage{
+    width: 100%;
+    height: auto;
+}
+
+.finger{
+    width: 80%;
+    height: 80%;
+}
+</style>

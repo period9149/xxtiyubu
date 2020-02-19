@@ -1,0 +1,182 @@
+@import "variables";
+// reset
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+html{
+    font-size: 13px;
+}
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: url("../background.jpg");
+}
+
+p{
+    line-height: 1.5em;
+}
+
+// colors
+
+@each $colorKey, $color in $colors {
+    .text-#{$colorKey}{
+        color: $color;
+    }
+    .bg-#{$colorKey}{
+        background-color: $color;
+    }
+}
+
+// text-align
+@each $var in (left, center, right){
+    .text-#{$var} {
+        text-align: $var !important;
+    }
+}
+
+// font-size
+
+@each $sizeKey, $size in $font-sizes{
+    .fs-#{$sizeKey}{
+        font-size: $size * $base-font-size;
+    }
+}
+
+// text overflow
+.text-ellipsis{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// flex
+.d-flex{
+    display: flex;
+}
+.flex-column{
+    flex-direction: column;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+
+@each $key, $value in $flex-jc{
+    .jc-#{$key}{
+        justify-content: $value;
+    }
+}
+
+
+@each $key, $value in $flex-ai{
+    .ai-#{$key}{
+        align-items: $value;
+    }
+}
+
+.flex-1{
+    flex: 1;
+}
+.flex-grow-1{
+    flex-grow: 1;
+}
+// width,height
+.w-100{
+    width: 100%;
+}
+.h-100{
+    height: 100%;
+}
+
+// spacing
+
+@each $typeKey, $type in $spacing-types{
+    // .m-1
+    @each $sizeKey, $size in $spacing-sizes{
+        .#{$typeKey}-#{$sizeKey}{
+            #{$type}: $size * $spacing-base-size
+        }
+    }
+    // .mx-1 .my-1
+    @each $sizeKey, $size in $spacing-sizes{
+        .#{$typeKey}x-#{$sizeKey}{
+            #{$type}-left: $size * $spacing-base-size;
+            #{$type}-right: $size * $spacing-base-size
+        }
+        .#{$typeKey}y-#{$sizeKey}{
+            #{$type}-bottom: $size * $spacing-base-size;
+            #{$type}-top: $size * $spacing-base-size
+        }
+    }
+    // .mt-1
+    @each $directionKey, $direction in $spacing-direction{
+        @each $sizeKey, $size in $spacing-sizes{
+            .#{$typeKey}#{$directionKey}-#{$sizeKey}{
+                #{$type}-#{$direction}: $size * $spacing-base-size
+            }
+        }
+    }
+}
+
+// button
+.btn{
+    border: none;
+    border-radius: 0.1538rem;
+    font-size: map-get($font-sizes, 'sm') * $base-font-size;
+    padding: 0.2rem 0.6rem;
+    &.btn-lg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i{
+            color: map-get($colors, 'primary');
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        background: map-get($colors,'white-1');
+        border: 1px solid map-get($colors, 'white-2');
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+// nav
+.nav{
+    display: flex;
+    .nav-item{
+        padding-bottom: 0.2rem;
+        margin: 2rem auto;
+        font-size: 1.5rem;
+        border-left: 1px solid darkgrey;
+        &:nth-child(5n+1){
+            border-left: none;
+        }
+        padding-left: 3rem;
+        padding-right: 3rem;
+
+    }
+    .active{
+        color: map-get($colors, 'primary');
+        color: red;
+    }
+}
+.nav-inverse{
+    .nav-item{
+        color: map-get($colors, 'black');
+    }
+    .active{
+        color: red;
+    }
+}
+
+
+// borders
+@each $dir in (top, right, bottom, left){
+    .border-#{$dir}{
+        border-#{$dir}: 1px solid $border-color
+    }
+}
