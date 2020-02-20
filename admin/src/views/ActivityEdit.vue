@@ -5,6 +5,12 @@
             <el-form-item label="活动名">
                 <el-input placeholder="请输入活动名..." v-model="model.name"></el-input>
             </el-form-item>
+            <el-form-item label="职位">
+                <el-select v-model="model.type" placeholder="请选择活动类型">
+                    <el-option label="校级活动" value="校级活动">校级活动</el-option>
+                    <el-option label="院级活动" value="院级活动">院级活动</el-option>
+                </el-select>
+            </el-form-item>
             <el-form-item label="详情">
                 <br>
                 <vue-editor useCustomImageHandler @image-added="handleImageAdded" v-model="model.body"></vue-editor>

@@ -18,6 +18,10 @@ p{
     line-height: 1.5em;
 }
 
+a{
+    text-decoration: none;
+}
+
 // colors
 
 @each $colorKey, $color in $colors {

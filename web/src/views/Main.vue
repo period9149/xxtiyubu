@@ -12,12 +12,16 @@
                 </div>
                 <div class="nav-item">
                     <el-dropdown>
-                        <span class="el-dropdown-link text-black">成员</span>
+                        <span class="el-dropdown-link">
+                            <router-link to="/members/introduction" class="text-black">成员</router-link>
+                        </span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>团队介绍</el-dropdown-item>
-                            <el-dropdown-item divided>负责人</el-dropdown-item>
-                            <el-dropdown-item>工作人员</el-dropdown-item>
-                            <el-dropdown-item>志愿者</el-dropdown-item>
+                            <el-dropdown-item>
+                                <router-link to="/members/introduction" class="text-grey">团队介绍</router-link>
+                            </el-dropdown-item>
+                            <el-dropdown-item divided>
+                                <router-link to="/member/introduction" class="text-grey">成员介绍</router-link>
+                            </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>
@@ -26,10 +30,16 @@
                 </div>
                 <div class="nav-item">
                     <el-dropdown>
-                        <span class="el-dropdown-link text-black">活动</span>
+                        <span class="el-dropdown-link">
+                            <router-link to="/activities/university" class="text-black">活动</router-link>
+                        </span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>校级活动</el-dropdown-item>
-                            <el-dropdown-item divided>院级活动</el-dropdown-item>
+                            <el-dropdown-item>
+                                <router-link to="/activities/university" class="text-grey">校级活动</router-link>
+                            </el-dropdown-item>
+                            <el-dropdown-item divided>
+                                <router-link to="/activities/college" class="text-grey">院级活动</router-link>
+                            </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>

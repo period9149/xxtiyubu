@@ -4,6 +4,8 @@
         <el-table :data="activities">
             <el-table-column prop="name" label="活动名" width="500">
             </el-table-column>
+            <el-table-column prop="type" label="活动类型" width="500">
+            </el-table-column>
             <el-table-column label="操作" width="180">
                 <template slot-scope="scope">
                     <el-button type="text" size="small"

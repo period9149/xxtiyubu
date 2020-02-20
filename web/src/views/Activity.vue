@@ -4,13 +4,13 @@
             <el-menu router class="el-menu">
                 <el-menu-item-group>
                     <div class="mx-5 text-center fs-xl mb-4 mt-3">
-                        <i class="el-icon-message mr-2"></i>关于我们
+                        <i class="el-icon-message mr-2"></i>活动信息
                     </div>
-                    <el-menu-item index="/members/introduction" class="text-center">
-                        团队介绍
+                    <el-menu-item index="/activities/university" class="text-center">
+                        校级活动
                     </el-menu-item>
-                    <el-menu-item index="/member/introduction" class="text-center">
-                        成员介绍
+                    <el-menu-item index="/activities/college" class="text-center">
+                        院级活动
                     </el-menu-item>
                 </el-menu-item-group>
             </el-menu>
@@ -32,7 +32,5 @@
         border-radius: 15px;
     }
 </style>
-
-
 
 
