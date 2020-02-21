@@ -14,8 +14,16 @@ module.exports = app => {
         const data = await Activity.find().lean()
         res.send(data)
     })
+    router.get('/activities/:id', async (req, res) => {
+        const data = await Activity.findById(req.params.id)
+        res.send(data)
+    })
     router.get('/teams/list', async (req,res) => {
         const data = await Team.find().lean()
+        res.send(data)
+    })
+    router.get('/teams/:id', async (req, res) => {
+        const data = await Team.findById(req.params.id).populate('leader')
         res.send(data)
     })
     router.get('/groups/list', async (req,res) => {

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div>
+        <div class="p-3 pl-4">
             <p class="css1f0310ad4e212a3 fs-xxl">我们的负责人：</p>
             <!-- start of 负责人 -->
             <div class="listcard">
@@ -8,12 +8,12 @@
                     <div>
                         <div class="card m-3 mx-5" >
                             <img :src="person.peopleImage" class="mt-3 ml-3">
-                            <div class="mx-4">
+                            <div class="mt-4">
                                 <p>
                                     <span class="ml-3 mr-5">{{ person.peopleName }}</span>
                                     <span>{{ person.peopleBirthplace }}</span>
                                 </p>
-                                <p class="ml-3">QQ:{{ person.peopleQQ }}</p>
+                                <p class="ml-3 mt-1">QQ:{{ person.peopleQQ }}</p>
                             </div>
                             <div class="mt-1 ml-3 mb-2 intro">
                                 <span v-if="person.peopleIntroduce">介绍：{{ person.peopleIntroduce }}</span>
@@ -30,12 +30,12 @@
                     <div>
                         <div class="card m-3 mx-5 card2" >
                             <img :src="person.peopleImage" class="mt-3 ml-3">
-                            <div class="mx-3">
+                            <div class="mt-4">
                                 <p>
                                     <span class="ml-3 mr-5">{{ person.peopleName }}</span>
                                     <span>{{ person.peopleBirthplace }}</span>
                                 </p>
-                                <p class="ml-3">QQ:{{ person.peopleQQ }}</p>
+                                <p class="ml-3 mt-1">QQ:{{ person.peopleQQ }}</p>
                             </div>
                             <div class="mt-1 ml-3 mb-2 intro">
                                 <span v-if="person.peopleIntroduce">介绍：{{ person.peopleIntroduce }}</span>
@@ -51,12 +51,12 @@
                 <div v-for="person in volunteer" :key="person.id" >
                     <div class="card m-3 mx-5 card3">
                         <img :src="person.peopleImage" class="mt-3 ml-3">
-                        <div class="mx-3">
+                        <div class="mt-4">
                             <p>
-                                <span class="mr-5">{{ person.peopleName }}</span>
+                                <span class="ml-3 mr-5">{{ person.peopleName }}</span>
                                 <span>{{ person.peopleBirthplace }}</span>
                             </p>
-                            <p>QQ:{{ person.peopleQQ }}</p>
+                            <p class="ml-3 mt-1">QQ:{{ person.peopleQQ }}</p>
                         </div>
                         <div class="mt-1 ml-3 mb-2 intro">
                             <span v-if="person.peopleIntroduce">介绍：{{ person.peopleIntroduce }}</span>
@@ -100,6 +100,10 @@
 </script>
 
 <style scoped lang="scss">
+    .container{
+        background: rgba(255,245,238,0.3);
+        border-radius: 15px;
+    }
     .listcard{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

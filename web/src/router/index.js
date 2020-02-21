@@ -8,6 +8,10 @@ import MembersAll from "../views/MembersAll"
 import Activity from '../views/Activity'
 import CollegeActivity from "../views/CollegeActivity"
 import UniversityActivity from "../views/UniversityActivity"
+import ActivityDetails from "../views/ActivityDetails"
+import Groups from "../views/Groups"
+import Team from "../views/Team"
+import TeamDetails from "../views/TeamDetails"
 
 Vue.use(VueRouter)
 
@@ -31,7 +35,20 @@ const routes = [
         component: Activity,
         children:[
           { path: '/activities/university', component: UniversityActivity}, //校级活动
-          { path: '/activities/college', component: CollegeActivity } //院级活动
+          { path: '/activities/college', component: CollegeActivity }, //院级活动
+          { path: '/activities/:id', component: ActivityDetails, props: true }
+        ]
+      },
+      {
+        path:'/groups',
+        component: Groups
+      },
+      {
+        path:'/team',
+        component: Team,
+        children:[
+          { path: '/teams/:id', component: TeamDetails, props: true },
+          { path: '/teams', component: TeamDetails }
         ]
       }
     ]

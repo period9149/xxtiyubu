@@ -1,14 +1,27 @@
 <template>
     <div>
-        <div v-for="item in showList" :key="item._id">
-            {{ item.name }}
+        <div class="container">
+            <div class="header">
+                <p class="fs-xxl"><i class="el-icon-basketball mr-2"></i>校级活动</p>
+            </div>
+            <div class="body">
+                <div v-for="item in showList" :key="item._id" class="fs-xl my-1 mx-5 news text-black">
+                    <router-link :to="`/activities/${item._id}`" class="ml-5">
+                        {{ item.name }}
+                    </router-link>
+                    <span>{{ item.createAt }}</span>
+                </div>
+            </div>
         </div>
-        <el-pagination
-                :page-size="pageSize"
-                layout="prev, pager, next"
-                :total="totalCount"
-                @current-change="getShowList">
-        </el-pagination>
+        <div class="text-center mt-5">
+            <el-pagination
+                    :page-size="pageSize"
+                    layout="prev, pager, next"
+                    :total="totalCount"
+                    @current-change="getShowList">
+            </el-pagination>
+        </div>
+
     </div>
 
 </template>
@@ -18,18 +31,18 @@
         name: "UniversityActivity",
         data(){
             return{
-               activities: [],
-               totalCount: 0,
-               showList:[],
-               pageSize: 5
+               activities: [], /* 所有校级活动 */
+               totalCount: 0, /* 所有校级活动数目 */
+               showList:[], /* 显示校级活动 */
+               pageSize: 8 /* 每页显示条数 */
             }
         },
         methods:{
             async fetch(){
                 const res = await this.$http.get('activities/list')
-                this.activities = res.data
-                this.totalCount = res.data.length
-                this.showList = this.activities.slice(0,5)
+                this.activities = res.data.filter( i => i.type === '校级活动') /* 从活动中提取校级活动 */
+                this.totalCount = this.activities.length
+                this.showList = this.activities.slice(0,this.pageSize)
             },
             getShowList(pageIndex = 1){
                 this.showList = this.activities.slice(this.pageSize * pageIndex - this.pageSize, this.pageSize * pageIndex )
@@ -42,6 +55,16 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+a{
+    line-height: 5rem;
+    color: black;
+}
+.body{
+    min-height: 50vh;
 
+}
+.news {
+    border-bottom: lightgrey solid 1px;
+}
 </style>

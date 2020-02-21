@@ -1,14 +1,14 @@
 <template>
     <div class="main">
         <!-- start of nav -->
-        <div class="bg-light py-2 px-4 d-flex ai-center test-center">
+        <div class="py-2 px-4 d-flex ai-center test-center">
             <img src="../assets/big_logo.jpg" height="40">
             <div class="px-4 flex-1">
                 <div class="fs-xxxl css1efb467bd1212a3">信息体育部</div>
             </div>
             <div class="nav nav-inverse pb-1 jc-around">
                 <div class="nav-item">
-                    <router-link to="/" tag="div">首页</router-link>
+                    <router-link to="/" class="text-black">首页</router-link>
                 </div>
                 <div class="nav-item">
                     <el-dropdown>
@@ -26,7 +26,7 @@
                     </el-dropdown>
                 </div>
                 <div class="nav-item">
-                    <router-link to="/teams" tag="div">球队</router-link>
+                    <router-link to="/teams" class="text-black">球队</router-link>
                 </div>
                 <div class="nav-item">
                     <el-dropdown>
@@ -44,7 +44,7 @@
                     </el-dropdown>
                 </div>
                 <div class="nav-item">
-                    <router-link to="/groups" tag="div">团建</router-link>
+                    <router-link to="/groups" class="text-black">团建</router-link>
                 </div>
             </div>
         </div>
@@ -52,8 +52,8 @@
         <router-view></router-view>
         <!-- start of copyright -->
         <div class="text-center bg-black text-white">
-            <p class="pt-4 fs-xl">体育、生活，就在信息体育部</p>
-            <p class="fs-xl"><span class="mx-2">版权所有</span>华中农业大学信息学院本科生学生会体育部</p>
+            <p class="pt-3 fs-xl my-3">体育、生活，就在信息体育部</p>
+            <p class="fs-xl my-3"><span class="mx-2">版权所有</span>华中农业大学信息学院本科生学生会体育部</p>
             <p class="pb-3 fs-xl">
                 <span class="mx-1">CopyRight &copy; xxtiyubu</span>
             </p>
@@ -68,4 +68,5 @@
     .el-dropdown-link{
         font-size: 1.5rem;
     }
+
 </style>

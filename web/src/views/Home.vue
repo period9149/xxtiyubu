@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <!-- start of top container -->
-        <div class="container mt-5 ml-5 mr-3 ">
+        <div class="container mt-1 ml-5 mr-3 ">
             <!-- start of swiper -->
             <div class="pictures">
                 <el-carousel indicator-position="outside">
@@ -16,7 +16,7 @@
             <!-- end of swiper -->
 
             <!-- start of news -->
-            <div class="card bg-light p-3 ml-5">
+            <div class="card news p-3 ml-5">
                 <div class="card-header d-flex ai-center mb-4">
                    <div class="fs-xl flex-1 px-2">
                        <i class="iconfont icon-ziyuan mx-2"></i>活动新闻
@@ -73,6 +73,7 @@
 
         <!-- start of bottom container -->
         <div class="btContainer mt-5 ">
+            <div></div>
             <!-- start of teamview -->
             <div class="card bg-light p-3 ml-5">
                 <div class="card-header d-flex ai-center mb-4">
@@ -105,11 +106,6 @@
                     </router-link>
                 </div>
             <!-- end of groupview -->
-            <!-- start of finger -->
-            <div class="mx-3">
-                <img src="../assets/finger.jpg" class="finger">
-            </div>
-            <!-- end of finger -->
         </div>
     </div>
 </template>
@@ -151,7 +147,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .homeTitle{
     font-size: 3rem;
 }
@@ -171,11 +167,14 @@ export default {
 }
 .btContainer{
     display: grid;
-    grid-template-columns: 40% 5% 40% 15%;
+    grid-template-columns: 6% 40% 7% 40% 6%;
 }
 .links{
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
+    a:hover{
+        color: #e7e1cd;
+    }
 }
 a{
     width: 60%;
@@ -209,6 +208,8 @@ a{
 
 .card{
     height: 90%;
+    border-radius: 8px;
+    background-image: linear-gradient(to top right,#FFFAFA,#FFF8DC,#FFFAF0,#FFFAFA,#FDF5E6);
 }
 
 .joinus{
@@ -225,4 +226,9 @@ a{
     width: 80%;
     height: 80%;
 }
+
+.card-body{
+    cursor: pointer;
+}
+
 </style>

@@ -9,9 +9,11 @@ html{
 }
 body{
     margin: 0;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
-    background: url("../background.jpg");
+    background: url("../background.jpg") no-repeat;
+    background-size: 100% 100%;
 }
 
 p{
@@ -20,6 +22,11 @@ p{
 
 a{
     text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover{
+    color: orange;
 }
 
 // colors
