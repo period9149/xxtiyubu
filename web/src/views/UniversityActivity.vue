@@ -2,14 +2,14 @@
     <div>
         <div class="container">
             <div class="header">
-                <p class="fs-xxl"><i class="el-icon-basketball mr-2"></i>校级活动</p>
+                <p class="fs-xxl"><i class="el-icon-basketball m-3"></i>校级活动</p>
             </div>
             <div class="body">
-                <div v-for="item in showList" :key="item._id" class="fs-xl my-1 mx-5 news text-black">
-                    <router-link :to="`/activities/${item._id}`" class="ml-5">
-                        {{ item.name }}
+                <div v-for="item in showList" :key="item._id" class="fs-xl my-1 mx-5 news text-black d-flex ai-center">
+                    <router-link :to="`/activities/${item._id}`" class="ml-5 flex-1">
+                        <i class="el-icon-news mr-2 fs-xl"></i>{{ item.name }}
                     </router-link>
-                    <span>{{ item.createAt }}</span>
+                    <span class="text-grey">{{ item.createdAt | date }}</span>
                 </div>
             </div>
         </div>
@@ -27,8 +27,14 @@
 </template>
 
 <script>
+    import dayjs from 'dayjs'
     export default {
         name: "UniversityActivity",
+        filters:{
+            date(val){
+                return dayjs(val).format('YYYY-MM-DD')
+            }
+        },
         data(){
             return{
                activities: [], /* 所有校级活动 */
@@ -59,6 +65,10 @@
 a{
     line-height: 5rem;
     color: black;
+}
+.container{
+    background: rgba(255,255,255,0.5);
+    border-radius: 15px;
 }
 .body{
     min-height: 50vh;

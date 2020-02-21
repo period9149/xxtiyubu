@@ -17,16 +17,19 @@
 
             <!-- start of news -->
             <div class="card news p-3 ml-5">
-                <div class="card-header d-flex ai-center mb-4">
+                <div class="card-header d-flex ai-center mb-3">
                    <div class="fs-xl flex-1 px-2">
                        <i class="iconfont icon-ziyuan mx-2"></i>活动新闻
                    </div>
+                    <div>
+                        <router-link to="/activities/university"><i class="el-icon-more"></i></router-link>
+                    </div>
                 </div>
                 <router-link tag="div" class="card-body pt-2 pb-2 px-3 d-flex"
                              v-for="(item,i) in activities" :key="i"
                             :to="`/activities/${item._id}`">
-                    <span class="fs-xxl">·</span>
-                    <span class="text-info">『热门』</span>
+                    <i class="fs-xxl el-icon-chat-round"></i>
+                    <span class="text-info text-red">『热门』</span>
                     <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
                     <span class="text-grey fs-sm">{{ item.createAt | date }}</span>
                 </router-link>
@@ -75,16 +78,19 @@
         <div class="btContainer mt-5 ">
             <div></div>
             <!-- start of teamview -->
-            <div class="card bg-light p-3 ml-5">
-                <div class="card-header d-flex ai-center mb-4">
+            <div class="card bg-light p-3 ml-5 mb-3">
+                <div class="card-header d-flex ai-center mb-3">
                     <div class="fs-xl flex-1 px-2">
                         <i class="iconfont icon-qiu mx-2"></i>球队一览
+                    </div>
+                    <div>
+                        <router-link to="/teams"><i class="el-icon-more"></i></router-link>
                     </div>
                 </div>
                 <router-link tag="div" class="card-body pt-2 pb-2 px-3 d-flex"
                              v-for="(item,i) in teams" :key="i"
                              :to="`/teams/${item._id}`">
-                    <span class="fs-xxl px-3">·</span>
+                    <i class="fs-xxl px-3 el-icon-medal"></i>
                     <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
                 </router-link>
             </div>
@@ -92,15 +98,18 @@
             <div></div>
             <!-- start of groupview -->
             <div class="card bg-light p-3 mr-5">
-                    <div class="card-header d-flex ai-center mb-4">
+                    <div class="card-header d-flex ai-center mb-3">
                         <div class="fs-xl flex-1 px-2">
                             <i class="iconfont icon-aixin mx-2"></i>团队建设
+                        </div>
+                        <div>
+                            <router-link to="/groups"><i class="el-icon-more"></i></router-link>
                         </div>
                     </div>
                     <router-link tag="div" class="card-body pt-2 pb-2 px-3 d-flex"
                                  v-for="(item,i) in groups" :key="i"
                                  :to="`/groups/${item._id}`">
-                        <span class="fs-xxl px-3">·</span>
+                        <i class="el-icon-thumb fs-xxl px-3"></i>
                         <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
                         <span class="text-grey fs-sm">{{ item.createAt | date }}</span>
                     </router-link>
@@ -132,11 +141,11 @@ export default {
         },
         async fetchTeams(){
             const res = await this.$http.get('teams/list')
-            this.teams = res.data
+            this.teams = res.data.slice(0,5)
         },
         async fetchGroups(){
             const res = await this.$http.get('groups/list')
-            this.groups = res.data
+            this.groups = res.data.slice(0,5)
         }
     },
     created() {

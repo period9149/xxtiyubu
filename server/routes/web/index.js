@@ -30,5 +30,9 @@ module.exports = app => {
         const data = await Group.find().lean()
         res.send(data)
     })
+    router.get('/groups/:id', async (req, res) => {
+        const data = await Group.findById(req.params.id)
+        res.send(data)
+    })
     app.use('/web/api',router)
 }

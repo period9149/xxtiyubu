@@ -24,6 +24,9 @@
 
 <script>
     export default {
+        props:{
+            id:{ required: true }
+        },
         data(){
             return{
                 teams:[]

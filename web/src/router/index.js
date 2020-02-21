@@ -12,6 +12,7 @@ import ActivityDetails from "../views/ActivityDetails"
 import Groups from "../views/Groups"
 import Team from "../views/Team"
 import TeamDetails from "../views/TeamDetails"
+import GroupDetails from "../views/GroupDetails"
 
 Vue.use(VueRouter)
 
@@ -41,7 +42,10 @@ const routes = [
       },
       {
         path:'/groups',
-        component: Groups
+        component: Groups,
+        children:[
+          { path: '/groups/:id', component: GroupDetails, props: true }
+        ]
       },
       {
         path:'/team',

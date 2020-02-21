@@ -54,7 +54,7 @@
             </div>
             <div class="leader mt-5 mx-3">
                 <p class="fs-xl m-4">队长：{{ leader.peopleName }}</p>
-                <p class="fs-xl m-4">QQ: {{ leader.peopleQQ }}</p>
+                <p class="fs-xl m-4">QQ：{{ leader.peopleQQ }}</p>
             </div>
         </div>
     </div>
