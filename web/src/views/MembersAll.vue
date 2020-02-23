@@ -6,7 +6,7 @@
                     <div class="left">
                         <img src="../assets/left.jpg">
                     </div>
-                    <div class="title flex-1">
+                    <div class="title flex-1 text-center">
                         <span>我们是</span>
                         <span class="mx-2">——</span>
                         <span class="css1f02384aa7212a3 fs-xxxl mt-2">信息体育部！</span>
