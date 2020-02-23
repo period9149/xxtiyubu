@@ -31,7 +31,7 @@
                     <i class="fs-xxl el-icon-chat-round"></i>
                     <span class="text-info text-red">『热门』</span>
                     <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
-                    <span class="text-grey fs-sm">{{ item.createAt | date }}</span>
+                    <span class="text-grey fs-sm">{{ item.createdAt | date }}</span>
                 </router-link>
             </div>
             <!-- end of news -->
@@ -111,7 +111,7 @@
                                  :to="`/groups/${item._id}`">
                         <i class="el-icon-thumb fs-xxl px-3"></i>
                         <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{ item.name }}</span>
-                        <span class="text-grey fs-sm">{{ item.createAt | date }}</span>
+                        <span class="text-grey fs-sm">{{ item.createdAt | date }}</span>
                     </router-link>
                 </div>
             <!-- end of groupview -->
