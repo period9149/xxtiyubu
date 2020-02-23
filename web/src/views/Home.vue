@@ -43,7 +43,7 @@
                         <i class="iconfont icon-tubiaozhizuomoban mx-2"></i>加入我们
                     </div>
                 </div>
-                <div class="text-center py-2">
+                <div class="text-center py-2">git
                     <img src="../assets/QQImage.jpg" class="qqImage">
                 </div>
                 <div class="text-center fs-xl mb-5 flex-1">
