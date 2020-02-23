@@ -1,18 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../views/Main.vue'
-import Home from "../views/Home"
-import Member from "../views/Member"
-import MemberList from "../views/MemberList"
-import MembersAll from "../views/MembersAll"
-import Activity from '../views/Activity'
-import CollegeActivity from "../views/CollegeActivity"
-import UniversityActivity from "../views/UniversityActivity"
-import ActivityDetails from "../views/ActivityDetails"
-import Groups from "../views/Groups"
-import Team from "../views/Team"
-import TeamDetails from "../views/TeamDetails"
-import GroupDetails from "../views/GroupDetails"
+
+// 这里使用路由的懒加载，用到哪个组件，就加载哪个组件，提高页面加载速度，打包以后，体积会变小
+const Main = () => import('../views/Main.vue')
+const Home = () => import("../views/Home")
+const Member = () => import("../views/Member")
+const MemberList = () => import("../views/MemberList")
+const MembersAll = () => import("../views/MembersAll")
+const Activity = () => import("../views/Activity")
+const CollegeActivity = () => import("../views/CollegeActivity")
+const UniversityActivity = () => import("../views/UniversityActivity")
+const ActivityDetails = () => import("../views/ActivityDetails")
+const Groups = () => import("../views/Groups")
+const Team = () => import("../views/Team")
+const TeamDetails = () => import("../views/TeamDetails")
+const GroupDetails = () => import("../views/GroupDetails")
+
 
 Vue.use(VueRouter)
 

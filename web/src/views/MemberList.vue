@@ -100,6 +100,9 @@
 </script>
 
 <style scoped lang="scss">
+    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/46614/5e4d4992f629d809903ebb18.css";
+    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/46614/5e4d4a5ef629d809903ebb1a.css";
+    @import 'http://cdn.repository.webfont.com/webfonts/nomal/135843/46614/5e4d4a10f629d809903ebb19.css';
     .container{
         background: rgba(255,245,238,0.3);
         border-radius: 15px;

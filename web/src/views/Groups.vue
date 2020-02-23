@@ -50,6 +50,7 @@
 </script>
 
 <style scoped>
+    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/46614/5e4fcb45f629d8031c4c0d70.css";
 .block{
     min-width: 300px;
     min-height: 600px;

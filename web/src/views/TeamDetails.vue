@@ -90,6 +90,7 @@
 
 <style scoped>
     @import "../assets/scss/_variables.scss";
+    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/46613/5e4f97f7f629d8031c4c0d60.css";
     .team{
         border-bottom: 2px solid #F0F8FF;
     }

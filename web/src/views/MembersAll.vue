@@ -71,6 +71,7 @@
 
 <style scoped>
     @import "../assets/scss/_variables.scss";
+    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/45807/5e4d122df629d80c402207c4.css";
     .el-header, .el-footer {
         color: #333;
         text-align: center;
