@@ -64,13 +64,12 @@
 </template>
 
 
-<style>
+<style scoped>
     @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/445/5e4b4b0ff629d81044e8327a.css";
-/*
-    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/46614/5e4d4992f629d809903ebb18.css";
-    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/46614/5e4d4a5ef629d809903ebb1a.css";
-    @import "https://cdn.repository.webfont.com/webfonts/nomal/135843/46613/5e4f97f7f629d8031c4c0d60.css";*/
     .el-dropdown-link{
         font-size: 1.5rem;
+    }
+    body{
+        min-width: 1500px;
     }
 </style>
