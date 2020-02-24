@@ -1,6 +1,6 @@
 # 信息体育部官网
 
-该项目已经部署在阿里云服务器上，PC端浏览器输入https://hazu.xxtiyubu.club,即可访问，手机端目前尚未适配
+该项目已经部署在阿里云服务器上，PC端浏览器输入 https://hazu.xxtiyubu.club 可访问，手机端目前尚未适配
 
 ### 1. 环境配置
 
@@ -10,7 +10,7 @@
 
 1. 编辑器: WebStorm
 
-1. 辅助软件: Visual Studio Code, Robo 3T, Terminal
+1. 辅助软件: Visual Studio Code, Robo 3T, Terminal, Chrome, FireFox
 
 ### 2. 后台管理界面
 
@@ -27,6 +27,7 @@
 1. 团建模块，类似于活动模块
 
 1. 管理员登录模块
+
     - 简单的登录界面
     - 管理员密码使用bcrypt包的hashSync方法进行加密，compareSync方法进行解密
     - 服务端登录校验（根据用户名找用户 --> 校验密码 --> 返回token）
@@ -46,7 +47,7 @@
 
 ### 四、上线
 
-1. 生产环境编译 npm run build
+1. 生产环境编译
 
 1. 购买域名和服务器
 
@@ -67,3 +68,11 @@
 1. 迁移本地数据到服务器 (mongodump) 在Robo 3T用JavaScript代码对MongoDB数据库进行操作
 
 1. 使用免费SSL证书启用HTTPS安全连接 https://letsencrypt.org/
+
+### 五、后续优化
+
+1. vue路由的懒加载（按需加载）：把不同路由对应的组件分割成不同的代码块，当路由被访问的时候才加载对应组件，提高效率
+
+1. 为提高网站安全性，web前端界面禁止了右键（查看源代码的一种途径）
+
+1. 持续优化中...
