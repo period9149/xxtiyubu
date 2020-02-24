@@ -37,7 +37,7 @@
 
 1. 用scss预定义一些基本样式，包括颜色，文字大小，margin，padding
 
-1. 页面布局大多为flex布局以及Grid布局
+1. 页面主要分为首页、成员、球队、活动和团建五大模块，页面布局大多为flex布局以及Grid布局
 
 1. 页面图标来自于iconfont：https://www.iconfont.cn/ 以及 Element UI
 
