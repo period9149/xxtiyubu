@@ -50,7 +50,7 @@
             },
             async fetchPeople(){
                 const res = await this.$http.get('rest/people')
-                this.people = res.data
+                this.people = res.data.filter(people => people.peopleTask === '球队队长' )
             }
         },
         created(){
